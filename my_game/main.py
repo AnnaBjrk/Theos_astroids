@@ -20,7 +20,7 @@ def main():
     Asteroid.containers = (asteroids, updatables, drawables)
     AsteroidField.containers = (updatables)
     Shot.containers = (shots, updatables, drawables)
-    
+
     asteroidfield = AsteroidField()
     
     player = Player(x, y)
@@ -48,14 +48,16 @@ def main():
 
         for obj in drawables:
             obj.draw(screen)
+            
 
         for obj in asteroids:
             for bullet in shots:
                 if bullet.collide_with(obj):
+                    
                     obj.split()
                     bullet.kill()
         pygame.display.flip()
         dt = fps.tick(60) / 1000
 
 if __name__ == "__main__":
-    main()
+    main() 
